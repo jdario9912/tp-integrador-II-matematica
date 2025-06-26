@@ -1,5 +1,6 @@
 from datetime import datetime
-from itertools import product
+
+# from itertools import product
 
 
 def es_bisiesto(anio):
@@ -25,41 +26,53 @@ def contar_pares_impares(anios):
     return pares, impares
 
 
-def edades_actuales(anios):
+# esta no la quiero usar
+# def edades_actuales(anios):
+#     anio_actual = datetime.now().year
+#     return [anio_actual - a for a in anios]
+
+
+def edad_actual(anio):
     anio_actual = datetime.now().year
-    return [anio_actual - a for a in anios]
+    return anio_actual - anio
 
 
-def producto_cartesiano(conjunto1, conjunto2):
-    return list(product(conjunto1, conjunto2))
+# por ahora no la uso
+# def producto_cartesiano(conjunto1, conjunto2):
+#     return list(product(conjunto1, conjunto2))
 
 
 def main():
     print("=== Análisis de años de nacimiento ===")
     # anios = ingresar_anios()
-    anios = anios = [1992, 2001, 1988, 2000, 1996, 2003, 2004, 1999]
+    anios = [1988, 2002]
 
     if not anios:
         print("No se ingresaron años.")
         return
 
     pares, impares = contar_pares_impares(anios)
-    print(f"\n🔢 Nacidos en años pares: {pares}")
-    print(f"🔢 Nacidos en años impares: {impares}")
+    print(f"\nNacidos en años pares: {pares}")
+    print(f"Nacidos en años impares: {impares}")
 
     if all(a > 2000 for a in anios):
-        print("👾 Grupo Z")
+        print("Grupo Z")
 
-    if any(es_bisiesto(a) for a in anios):
-        print("🎉 Tenemos un año especial")
+    for anio in anios:
+        if es_bisiesto(anio):
+            print(f"Tenemos un año especial: {anio}")
 
-    edades = edades_actuales(anios)
-    print(f"\n📆 Edades actuales: {edades}")
+    # if any(es_bisiesto(a) for a in anios):
+    #     print(f"Tenemos un año especial: {a}")
 
-    pc = producto_cartesiano(set(anios), set(edades))
-    print(f"\n✖️ Producto cartesiano (año x edad):")
-    for par in pc:
-        print(f"  {par}")
+    # edades = edades_actuales(anios)
+    # print(f"\nEdades actuales: {edades}")
+
+    # pc = producto_cartesiano(set(anios), set(edades))
+    print(f"\nProducto cartesiano (año, edad):")
+
+    for anio in anios:
+        print(f"({anio},  {edad_actual(anio)})")
 
 
 if __name__ == "__main__":

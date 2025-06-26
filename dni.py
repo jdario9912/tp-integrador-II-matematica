@@ -1,11 +1,11 @@
 def ingresar_dnis():
+    count = 0
     dnis = []
-    while True:
-        dni = input("Ingresá un DNI (o ENTER para finalizar): ").strip()
-        if dni == "":
-            break
+    while count < 2:
+        dni = input("Ingresá un DNI: ").strip()
         if dni.isdigit() and len(dni) >= 1:
             dnis.append(dni)
+            count += 1
         else:
             print("DNI inválido. Ingresá solo números.")
     return dnis
@@ -27,9 +27,8 @@ def mostrar_operaciones_conjuntos(conjuntos):
     union = set.union(*conjuntos)
     interseccion = set.intersection(*conjuntos)
     diferencia_simetrica = set.symmetric_difference(conjuntos[0], conjuntos[1])
-    diferencia = conjuntos[0] - conjuntos[1]
 
-    print("\n🧮 Operaciones entre conjuntos:")
+    print("\nOperaciones entre conjuntos:")
     print(f"Unión: {sorted(union)}")
     print(f"Intersección: {sorted(interseccion)}")
     print(
@@ -41,10 +40,10 @@ def mostrar_operaciones_conjuntos(conjuntos):
     print(f"Diferencia simétrica (DNI 1 vs DNI 2): {sorted(diferencia_simetrica)}")
 
     if interseccion:
-        print("🔁 Dígito compartido")
+        print(f"Dígito compartido: {interseccion}")
     for i, c in enumerate(conjuntos):
         if len(c) > 6:
-            print(f"📌 DNI {i + 1}: Diversidad numérica alta")
+            print(f"DNI {i + 1}: Diversidad numérica alta")
 
 
 def contar_frecuencias(dni):
@@ -61,7 +60,7 @@ def suma_digitos(dni):
 def main():
     print("=== Procesador de DNIs ===")
     # dnis = ingresar_dnis()
-    dnis = [15937591, 26743624]
+    dnis = ["15937591", "26743624"]
     if not dnis:
         print("No se ingresaron DNIs.")
         return
@@ -69,7 +68,7 @@ def main():
     conjuntos = obtener_conjuntos_digitos(dnis)
 
     for i, dni in enumerate(dnis):
-        print(f"\n📄 DNI {i + 1}: {dni}")
+        print(f"\nDNI {i + 1}: {dni}")
         print(f"Conjunto de dígitos únicos: {sorted(conjuntos[i])}")
         print(f"Suma de dígitos: {suma_digitos(dni)}")
         frec = contar_frecuencias(dni)
