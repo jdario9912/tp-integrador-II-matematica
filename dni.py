@@ -59,8 +59,7 @@ def suma_digitos(dni):
 
 def main():
     print("=== Procesador de DNIs ===")
-    # dnis = ingresar_dnis()
-    dnis = ["15937591", "26743624"]
+    dnis = ingresar_dnis()
     if not dnis:
         print("No se ingresaron DNIs.")
         return

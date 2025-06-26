@@ -1,7 +1,5 @@
 from datetime import datetime
 
-# from itertools import product
-
 
 def es_bisiesto(anio):
     return (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0)
@@ -26,26 +24,14 @@ def contar_pares_impares(anios):
     return pares, impares
 
 
-# esta no la quiero usar
-# def edades_actuales(anios):
-#     anio_actual = datetime.now().year
-#     return [anio_actual - a for a in anios]
-
-
 def edad_actual(anio):
     anio_actual = datetime.now().year
     return anio_actual - anio
 
 
-# por ahora no la uso
-# def producto_cartesiano(conjunto1, conjunto2):
-#     return list(product(conjunto1, conjunto2))
-
-
 def main():
     print("=== Análisis de años de nacimiento ===")
-    # anios = ingresar_anios()
-    anios = [1988, 2002]
+    anios = ingresar_anios()
 
     if not anios:
         print("No se ingresaron años.")
@@ -62,13 +48,6 @@ def main():
         if es_bisiesto(anio):
             print(f"Tenemos un año especial: {anio}")
 
-    # if any(es_bisiesto(a) for a in anios):
-    #     print(f"Tenemos un año especial: {a}")
-
-    # edades = edades_actuales(anios)
-    # print(f"\nEdades actuales: {edades}")
-
-    # pc = producto_cartesiano(set(anios), set(edades))
     print(f"\nProducto cartesiano (año, edad):")
 
     for anio in anios:
