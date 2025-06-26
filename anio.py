@@ -42,6 +42,13 @@ def edad_actual(anio):
 #     return list(product(conjunto1, conjunto2))
 
 
+def mostrar_anios_ingresados(anios):
+    frase = "Años ingresados: "
+    for anio in anios:
+        frase = f"{frase} {anio}"
+    print(frase)
+
+
 def main():
     print("=== Análisis de años de nacimiento ===")
     # anios = ingresar_anios()
@@ -50,6 +57,8 @@ def main():
     if not anios:
         print("No se ingresaron años.")
         return
+
+    mostrar_anios_ingresados(anios)
 
     pares, impares = contar_pares_impares(anios)
     print(f"\nNacidos en años pares: {pares}")
