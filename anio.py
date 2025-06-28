@@ -39,7 +39,7 @@ def mostrar_anios_ingresados(anios):
 def main():
     print("=== Análisis de años de nacimiento ===")
     # anios = ingresar_anios()
-    anios = [1988, 2002]
+    anios = [1988, 2004]
 
     if not anios:
         print("No se ingresaron años.")

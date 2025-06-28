@@ -95,7 +95,8 @@ def obtener_conjuntos_digitos(dnis):
 
 def main():
     print("=== Procesador de DNIs ===")
-    dnis = ingresar_dnis()
+    # dnis = ingresar_dnis()
+    dnis = ["45873055", "33975916"]
 
     conjuntos = obtener_conjuntos_digitos(dnis)
 
